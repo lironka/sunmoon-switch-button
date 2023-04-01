@@ -1,0 +1,15 @@
+{
+  "name": "switch-button",
+  "version": "1.0.0",
+  "description": "Switch SunMoon button based on css/html",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.html",
+    "start": "sass --watch style.scss ./assets/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.60.0"
+  }
+}

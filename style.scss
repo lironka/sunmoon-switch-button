@@ -1,0 +1,156 @@
+$size: 4rem;
+$size-star: calc($size / 2);
+
+$height: $size * 2;
+$width: $height * 2.5;
+$shine1: $size * 1.8;
+$shine2: $size * 2.5;
+
+$white-shadow: rgba(0, 0, 0, 0.62);
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d5dbdb;
+}
+
+h1 {
+  color: #1783e8;
+}
+
+.switch-btn {
+  width: $width;
+  height: $height;
+  border-radius: $size;
+  box-shadow: 2px 3px 4px 0px rgba(255, 255, 255, 0.82);
+  background-color: #339bd0;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    width: $width;
+    height: $height;
+    display: block;
+    border-radius: $size;
+    content: '';
+    position: absolute;
+    box-shadow: inset 2px 4px 12px 0px rgba(0, 0, 0, 0.62);
+    pointer-events: none;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
+    position: absolute;
+    &:checked + label {
+      background-color: #000;
+      &:before {
+        background-color: #fff;
+      }
+
+      svg {
+        opacity: 0;
+      }
+
+      .sun-moon {
+        left: calc(100% - $height);
+        background-color: #d1d1d1;
+
+        &:before {
+          transition: opacity 0.5s ease-in-out;
+          opacity: 1;
+        }
+      }
+
+      .stars {
+        display: block;
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    background-color: #1783e8;
+    cursor: pointer;
+  }
+
+  svg g {
+    transform: translate(9rem, -4rem);
+    display: block;
+  }
+
+  svg::before {
+    transform: translate(9rem, -2rem);
+    fill: hsla(210, 18%, 82%, 1);
+  }
+
+  .sun-moon {
+    display: block;
+    width: $height;
+    height: $height;
+    background-color: #f6d119;
+    border-radius: $size;
+    position: absolute;
+    left: 0;
+    transform: scale(0.8);
+    transition: left 0.5s ease, background-color 0.5s ease;
+    box-shadow: 0px 0px 0px $size rgba(255, 255, 255, 0.2), 0px 0px 0px $shine1 rgba(255, 255, 255, 0.2),
+      0px 0px 5px $shine2 rgba(255, 254, 254, 0.2), -4px -7px 6px 0px rgba(0, 0, 0, 0.65) inset,
+      3px 5px 9px 2px rgba(0, 0, 0, 1), 3px 4px 6px 0px rgba(255, 255, 255, 1) inset;
+
+    &:before {
+      display: block;
+      width: $size;
+      height: $size;
+      content: '';
+      border-radius: $size;
+      background-color: #a8a8aa;
+      transform: scale(0.6) translate(10%, 125%);
+      border: 1px solid #7f8081;
+      opacity: 0;
+
+      box-shadow: 5rem 0rem 0px -0.7rem #a8a8aa, 5rem 0rem 0px -0.6rem #7f8081, 2rem -4rem 0px -0.9rem #a8a8aa,
+        2rem -4rem 0px -0.8rem #7f8081;
+    }
+  }
+
+  .stars {
+    display: none;
+    width: $size-star;
+    height: $size-star;
+    position: absolute;
+    transform: scale(0.3) translate(200%, 350%);
+    background-color: #ffffff;
+    border-radius: $size-star;
+
+    box-shadow: $height (-$size) 0px -5px rgba(255, 255, 255, 1), $height $height 0px -10px rgb(255, 255, 255);
+
+    &::after {
+      width: $size-star;
+      height: $size-star;
+      content: '';
+      position: absolute;
+      transform: translate(1500%, -200%);
+      background-color: #ffffff;
+      border-radius: $size-star;
+
+      box-shadow: -($height + $size) ($size) 0px -10px rgba(255, 255, 255, 1),
+        $size (-$height) 0px -10px rgb(255, 255, 255);
+    }
+
+    &::before {
+      width: $size-star;
+      height: $size-star;
+      content: '';
+      position: absolute;
+      transform: translate(1000%, 500%);
+      background-color: #ffffff;
+      border-radius: $size-star;
+
+      box-shadow: $height (-$size) 0px -5px rgba(255, 255, 255, 1), $size (-$height) 0px -10px rgb(255, 255, 255);
+    }
+  }
+}
