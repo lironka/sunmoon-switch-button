@@ -1,5 +1,5 @@
 {
-  "name": "switch-button",
+  "name": "sunmoon-switch-button",
   "version": "1.0.0",
   "description": "Switch SunMoon button based on css/html",
   "main": "index.js",
