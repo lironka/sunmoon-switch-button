@@ -16,6 +16,10 @@ $white-shadow: rgba(0, 0, 0, 0.62);
 
 body {
   background-color: #d5dbdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 h1 {
